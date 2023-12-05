@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import { enviador } from '../../Functions/usePost';
 import { API_URLS } from '../../modulos/urls';
+import { useNavigation } from '@react-navigation/native';
 
 function Registrar() {
   const [nombres, setNombres] = useState('');
@@ -10,6 +11,7 @@ function Registrar() {
   const [usuario, setUsuario] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const navigation = useNavigation();
 
   const manejador = async () => {
     const respuesta = await enviador(API_URLS.Registrar, { nombres, apellidos, usuario, password, email });
@@ -49,7 +51,7 @@ function Registrar() {
       </Button>
       <Text style={{ marginTop: 16 }}>
         ¿Ya tienes cuenta?{' '}
-        <Text onPress={() => console.log('Navegar a Login')}>Inicia sesión</Text>
+        <Text onPress={() => navigation.navigate('Login')}>Inicia sesión</Text>
       </Text>
     </View>
   );
