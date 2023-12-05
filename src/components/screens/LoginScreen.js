@@ -32,7 +32,7 @@ const IniciarSesion = ({ setIsAuthenticated }) => {
       <View style={{ marginTop: 16 }}>
         <Text>
           ¿Tienes problemas?{' '}
-          <Text onPress={() => console.log('Recuperar cuenta')}>Recupera tu cuenta</Text>
+          <Text onPress={() => navigation.navigate('Recuperar')}>Recuperar Cuenta</Text>
         </Text>
       </View>
     </View>
