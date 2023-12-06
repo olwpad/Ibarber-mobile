@@ -1,6 +1,7 @@
 import { View, Text, TextInput, Button } from 'react-native';
-import { API_URLS } from '../../modulos/urls';
-import { enviador } from '../../Functions/usePost';
+import { useForm } from '../../Hooks/useform';
+// import { API_URLS } from '../../modulos/urls';
+// import { enviador } from '../../Functions/usePost';
 import { useNavigation } from '@react-navigation/native';
 
 export const RecuperarScreen = () => {
@@ -11,14 +12,7 @@ export const RecuperarScreen = () => {
   const { email } = formState;
 
   const manejador = async () => {
-    const confirmacion = await mostrarConfirmacion(
-      '¿Enviar datos?',
-      '¿Estás seguro de que deseas enviar los datos?'
-    );
-
-    if (confirmacion.isConfirmed) {
-      await enviador(API_URLS.RECUPERAR, { email });
-    }
+    //Alertas
   };
 
   return (
