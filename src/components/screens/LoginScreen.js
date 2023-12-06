@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-
+import { iniciar } from '../../Functions/funciones';
 const IniciarSesion = ({ setIsAuthenticated }) => {
   const [usuario, setUsuario] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
   const manejador = async () => {
-    // Implementa tu lógica de inicio de sesión aquí
+    const isAuthenticated = await iniciar({ usuario, password });
+    if (isAuthenticated) {
+      navigation.navigate('list');
+    }
   };
+  
 
   return (
     <View style={{ padding: 16 }}>
